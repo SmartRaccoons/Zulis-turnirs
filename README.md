@@ -1,4 +1,5 @@
-## Zūlis turnira moza aplikaceja
+Aplikaceja pīejama ite http://smartraccoons.github.com/Zulis-turnirs/
+
 * Veic punktu uzskait
 * Sasvīž spieļotojus randomā
 * Šķiroj vītys
