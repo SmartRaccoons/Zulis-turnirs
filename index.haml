@@ -1,0 +1,54 @@
+!!! 5
+%html{'lang':'lv', 'dir':'ltr'}
+    %head
+        %title Zūlis turnira aplikāceja
+        %meta{'content':'text/html;charset=utf-8', 'http-equiv': 'Content-Type'}
+        %meta{'content':'raccoons.lv', 'name':'author'}
+        %link{'href':'d/css/screen.css', 'media':'screen,projection','rel':'stylesheet'}
+    %body
+        .topbar
+            .fill
+                .container
+                    .brand Zūlis turnirs
+                    %ul#navigation
+        .container
+            #app.content
+            %footer
+                %p
+                    &copy;
+                    %a{'href':'http://raccoons.lv'} raccoons.lv
+                    2012
+        %script{'src':'d/javascripts/jquery.min.js'}
+        %script{'src':'d/javascripts/json2.js'}
+        %script{'src':'d/javascripts/underscore-min.js'}
+        %script{'src':'d/javascripts/backbone.js'}
+        %script{'src':'d/javascripts/backbone-localstorage.js'}
+
+        %script{'src':'d/javascripts/bone/data/models.js'}
+        %script{'src':'d/javascripts/bone/data/views.js'}
+
+        %script{'src':'d/javascripts/bone/data/views.js'}
+        %script{'src':'d/javascripts/bone/routers.js'}
+        :javascript
+            (function(){
+                var r = new window.Router();
+                //print navigation links
+                $.each([['', 'Turnira dati'], ['about','Par aplikaceji']], function(i, pr){
+                    $('#navigation').append(
+                        $('<li>').append(
+                            $('<a>', {
+                                'text': pr[1],
+                                'title': pr[1],
+                                'href': '#'+pr[0],
+                                'click': function(e){
+                                     e.preventDefault();
+                                     r.navigate(pr[0], true);
+                                 }
+                            })
+                        )
+                    )
+                });
+                Backbone.history.start();
+                //Backbone.history.start({pushState: true});
+            })();
+
