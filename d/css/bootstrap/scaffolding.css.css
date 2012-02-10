@@ -1,9 +1,9 @@
 /*
 Syntax error: Undefined variable: "$white".
-        on line 11 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/app/d/sass/bootstrap/scaffolding.css.scss
+        on line 11 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/Zulis-app/d/sass/bootstrap/scaffolding.css.scss
 
 Backtrace:
-/home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/app/d/sass/bootstrap/scaffolding.css.scss:11
+/home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/Zulis-app/d/sass/bootstrap/scaffolding.css.scss:11
 /var/lib/gems/1.8/gems/sass-3.1.2/lib/sass/../sass/script/variable.rb:45:in `_perform'
 /var/lib/gems/1.8/gems/sass-3.1.2/lib/sass/../sass/script/node.rb:40:in `perform'
 /var/lib/gems/1.8/gems/sass-3.1.2/lib/sass/../sass/tree/visitors/perform.rb:215:in `visit_prop'
@@ -65,4 +65,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$white\".\A         on line 11 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/app/d/sass/bootstrap/scaffolding.css.scss"; }
+  content: "Syntax error: Undefined variable: \"$white\".\A         on line 11 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/Zulis-app/d/sass/bootstrap/scaffolding.css.scss"; }

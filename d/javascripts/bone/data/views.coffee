@@ -95,15 +95,16 @@ class UserView extends Backbone.View
   template: _.template("""
     <td><strong><%=place%></strong></td>
     <td><%=order%></td>
-    <td>
-      <div class='name'>
-        <%=name%>
+    <td class='view-name-tab view-open'>
+      <div class='view-name'>
+        <span class='edit-name'><%=name%></span>
+        <input type='text' value='<%=name%>' />
         <span class='remove'>x</span>
       </div>
     </td>
     <% if (points) { %>
       <% _.each(points, function(p, i) { %>
-        <td data-round='<%=i+1%>' class='points points-round points-view-open'>
+        <td data-round='<%=i+1%>' class='points points-round view-open'>
           <strong>
             <span><%= p[0] %></span>
             <input type='text' value='<%= p[0] %>' />
@@ -122,6 +123,7 @@ class UserView extends Backbone.View
 
   events:
     'click .remove': 'remove'
+    'dblclick .view-name-tab': 'editView'
     'click .points-round': 'editView'
     'keyup input': 'keyUp'
 
@@ -132,9 +134,9 @@ class UserView extends Backbone.View
 
   editView: (e) ->
     td = $(e.currentTarget)
-    if td.hasClass('points-view-edit')
+    if td.hasClass('view-edit')
       return false
-    td.removeClass('points-view-open').addClass('points-view-edit');
+    td.removeClass('view-open').addClass('view-edit');
     td.find('input')[0].focus()
 
   keyUp: (e) ->
@@ -143,7 +145,7 @@ class UserView extends Backbone.View
 
   cancel: (e) ->
     td = $(e.currentTarget).closest('td')
-    $(td).removeClass('points-view-edit').addClass('points-view-open');
+    $(td).removeClass('view-edit').addClass('view-open');
 
   save: (e) ->
     td = $(e.currentTarget).closest('td')
@@ -152,7 +154,8 @@ class UserView extends Backbone.View
     points = _.clone(@model.get('points'))
     points[round-1] = [td.find('strong input').val(), td.find('span input').val()]
     @model.save({
-      'points': points
+      'points': points,
+      'name': @.$('.view-name input').val()
     })
     @cancel(e)
 

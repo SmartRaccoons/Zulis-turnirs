@@ -72,5 +72,4 @@ class UserList extends Backbone.Collection
     return p
 
 
-#window.Rounds = new RoundList
 window.Users = new UserList

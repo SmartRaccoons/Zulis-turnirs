@@ -15,17 +15,17 @@ body
 table
     .points
         text-align: center
-    .points-view-open
+    .view-open
         input
             display: none
-    .points-view-edit
-        span, strong
-            span
-                display: none
-    input
-        width: 20px
+    .view-edit
+        span span, strong span, .edit-name
+            display: none
+    .points
+        input
+            width: 20px
 
-.name
+.view-name
     position: relative
     padding-right: 10px
     .remove
@@ -35,3 +35,26 @@ table
         right: 0px
         color: red
         cursor: pointer
+
+.sounds
+    margin: 20px 0
+    opacity: 0.3
+    &:hover
+        opacity: 1
+
+.view-timer
+    margin: 20px 0
+    text-align: center
+    font-size: 340px
+    line-height: 500px
+    overflow: hidden
+    strong
+        font-weight: normal
+        &:after
+            content: ':'
+.remains-5
+    color: #630500
+.remains-1
+    color: #ff0000
+.remains-0
+    text-decoration: blink

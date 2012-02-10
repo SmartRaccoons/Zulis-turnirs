@@ -27,13 +27,15 @@
         %script{'src':'d/javascripts/bone/data/models.js'}
         %script{'src':'d/javascripts/bone/data/views.js'}
 
-        %script{'src':'d/javascripts/bone/data/views.js'}
+        %script{'src':'d/javascripts/bone/time/models.js'}
+        %script{'src':'d/javascripts/bone/time/views.js'}
+
         %script{'src':'d/javascripts/bone/routers.js'}
         :javascript
             (function(){
                 var r = new window.Router();
                 //print navigation links
-                $.each([['', 'Turnira dati'], ['about','Par aplikaceji']], function(i, pr){
+                $.each([['', 'Turnira dati'], ['timer', 'Taimers'], ['about','Par aplikaceji']], function(i, pr){
                     $('#navigation').append(
                         $('<li>').append(
                             $('<a>', {

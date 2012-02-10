@@ -106,10 +106,11 @@
 
     UserView.prototype.tagName = 'tr';
 
-    UserView.prototype.template = _.template("<td><strong><%=place%></strong></td>\n<td><%=order%></td>\n<td>\n  <div class='name'>\n    <%=name%>\n    <span class='remove'>x</span>\n  </div>\n</td>\n<% if (points) { %>\n  <% _.each(points, function(p, i) { %>\n    <td data-round='<%=i+1%>' class='points points-round points-view-open'>\n      <strong>\n        <span><%= p[0] %></span>\n        <input type='text' value='<%= p[0] %>' />\n      </strong>\n      <span>(\n        <span><%= p[1] %></span>\n        <input type='text' value='<%= p[1] %>' />\n      )</span>\n     </td>\n  <% }); %>\n  <% } %>\n<td class='points points-total'>\n  <strong><%= total[0]%></strong> (<%= total[1]%>)\n</td>");
+    UserView.prototype.template = _.template("<td><strong><%=place%></strong></td>\n<td><%=order%></td>\n<td class='view-name-tab view-open'>\n  <div class='view-name'>\n    <span class='edit-name'><%=name%></span>\n    <input type='text' value='<%=name%>' />\n    <span class='remove'>x</span>\n  </div>\n</td>\n<% if (points) { %>\n  <% _.each(points, function(p, i) { %>\n    <td data-round='<%=i+1%>' class='points points-round view-open'>\n      <strong>\n        <span><%= p[0] %></span>\n        <input type='text' value='<%= p[0] %>' />\n      </strong>\n      <span>(\n        <span><%= p[1] %></span>\n        <input type='text' value='<%= p[1] %>' />\n      )</span>\n     </td>\n  <% }); %>\n  <% } %>\n<td class='points points-total'>\n  <strong><%= total[0]%></strong> (<%= total[1]%>)\n</td>");
 
     UserView.prototype.events = {
       'click .remove': 'remove',
+      'dblclick .view-name-tab': 'editView',
       'click .points-round': 'editView',
       'keyup input': 'keyUp'
     };
@@ -122,8 +123,8 @@
     UserView.prototype.editView = function(e) {
       var td;
       td = $(e.currentTarget);
-      if (td.hasClass('points-view-edit')) return false;
-      td.removeClass('points-view-open').addClass('points-view-edit');
+      if (td.hasClass('view-edit')) return false;
+      td.removeClass('view-open').addClass('view-edit');
       return td.find('input')[0].focus();
     };
 
@@ -135,7 +136,7 @@
     UserView.prototype.cancel = function(e) {
       var td;
       td = $(e.currentTarget).closest('td');
-      return $(td).removeClass('points-view-edit').addClass('points-view-open');
+      return $(td).removeClass('view-edit').addClass('view-open');
     };
 
     UserView.prototype.save = function(e) {
@@ -145,7 +146,8 @@
       points = _.clone(this.model.get('points'));
       points[round - 1] = [td.find('strong input').val(), td.find('span input').val()];
       this.model.save({
-        'points': points
+        'points': points,
+        'name': this.$('.view-name input').val()
       });
       return this.cancel(e);
     };

@@ -5,16 +5,34 @@ window.autoUpate = yes
 window.Router = class Router extends Backbone.Router
   routes: {
     '': 'index',
+    'timer': 'timer',
     'about': 'about'
   }
+
+  e: ->
+#    empty #app and return jquery array set
+    ap = $('#app')
+#    fcking jquery works not well at this point :)
+    ap[0].innerHTML = ''
+    ap
+
   index: ->
     if !@.z
       @.z = new Zole({
         collection: Users
       })
-    $('#app').empty().append(@.z.el);
+
+    @e().append(@.z.el);
+
+  timer: ->
+    if !@.t
+      @.t = new Timer({
+
+      })
+    @e().append(@.t.el)
+
   about: ->
-    $('#app').empty().html("""
+    @e().html("""
       <h1>Zūlis turniru <small>Aplikaceja</small></h1>
       <p>
         Atvīgloi turnira organiziešonu:
@@ -27,7 +45,7 @@ window.Router = class Router extends Backbone.Router
         <li>Spieļotoju šķirošonu piec punktim</li>
       </ul>
       <p>Drūši varat lītot piec sovim īskotim, nūrodūt apakšā atpakaļsaiti uz autorim!</p>
-     """);
+     """)
 
 #$(document).ready ->
 #  r = new Router();

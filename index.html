@@ -32,14 +32,15 @@
         <script src='d/javascripts/backbone-localstorage.js'></script>
         <script src='d/javascripts/bone/data/models.js'></script>
         <script src='d/javascripts/bone/data/views.js'></script>
-        <script src='d/javascripts/bone/data/views.js'></script>
+        <script src='d/javascripts/bone/time/models.js'></script>
+        <script src='d/javascripts/bone/time/views.js'></script>
         <script src='d/javascripts/bone/routers.js'></script>
 <script type='text/javascript'>
 // <![CDATA[
             (function(){
                 var r = new window.Router();
                 //print navigation links
-                $.each([['', 'Turnira dati'], ['about','Par aplikaceji']], function(i, pr){
+                $.each([['', 'Turnira dati'], ['timer', 'Taimers'], ['about','Par aplikaceji']], function(i, pr){
                     $('#navigation').append(
                         $('<li>').append(
                             $('<a>', {

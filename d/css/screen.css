@@ -2917,29 +2917,71 @@ table .points {
   text-align: center;
 }
 /* line 19, ../sass/screen.sass */
-table .points-view-open input {
+table .view-open input {
   display: none;
 }
-/* line 23, ../sass/screen.sass */
-table .points-view-edit span span, table .points-view-edit strong span {
+/* line 22, ../sass/screen.sass */
+table .view-edit span span, table .view-edit strong span, table .view-edit .edit-name {
   display: none;
 }
 /* line 25, ../sass/screen.sass */
-table input {
+table .points input {
   width: 20px;
 }
 
 /* line 28, ../sass/screen.sass */
-.name {
+.view-name {
   position: relative;
   padding-right: 10px;
 }
 /* line 31, ../sass/screen.sass */
-.name .remove {
+.view-name .remove {
   display: block;
   position: absolute;
   top: 0px;
   right: 0px;
   color: red;
   cursor: pointer;
+}
+
+/* line 39, ../sass/screen.sass */
+.sounds {
+  margin: 20px 0;
+  opacity: 0.3;
+}
+/* line 42, ../sass/screen.sass */
+.sounds:hover {
+  opacity: 1;
+}
+
+/* line 45, ../sass/screen.sass */
+.view-timer {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 340px;
+  line-height: 500px;
+  overflow: hidden;
+}
+/* line 51, ../sass/screen.sass */
+.view-timer strong {
+  font-weight: normal;
+}
+/* line 53, ../sass/screen.sass */
+.view-timer strong:after {
+  content: ":";
+}
+
+/* line 55, ../sass/screen.sass */
+.remains-5 {
+  color: #630500;
+}
+
+/* line 57, ../sass/screen.sass */
+.remains-1 {
+  color: red;
+}
+
+/* line 59, ../sass/screen.sass */
+.remains-0 {
+  text-decoration: blink;
 }

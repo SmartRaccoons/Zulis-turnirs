@@ -1,11 +1,11 @@
 /*
 Syntax error: Undefined mixin 'shorthand-font'.
-        on line 9 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/app/d/sass/bootstrap/type.css.scss, in `shorthand-font'
-        from line 9 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/app/d/sass/bootstrap/type.css.scss
+        on line 9 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/Zulis-app/d/sass/bootstrap/type.css.scss, in `shorthand-font'
+        from line 9 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/Zulis-app/d/sass/bootstrap/type.css.scss
 
 Backtrace:
-/home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/app/d/sass/bootstrap/type.css.scss:9:in `shorthand-font'
-/home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/app/d/sass/bootstrap/type.css.scss:9
+/home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/Zulis-app/d/sass/bootstrap/type.css.scss:9:in `shorthand-font'
+/home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/Zulis-app/d/sass/bootstrap/type.css.scss:9
 /var/lib/gems/1.8/gems/sass-3.1.2/lib/sass/../sass/tree/visitors/perform.rb:169:in `visit_mixin'
 /var/lib/gems/1.8/gems/sass-3.1.2/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
 /var/lib/gems/1.8/gems/sass-3.1.2/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
@@ -65,4 +65,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'shorthand-font'.\A         on line 9 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/app/d/sass/bootstrap/type.css.scss, in `shorthand-font'\A         from line 9 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/app/d/sass/bootstrap/type.css.scss"; }
+  content: "Syntax error: Undefined mixin 'shorthand-font'.\A         on line 9 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/Zulis-app/d/sass/bootstrap/type.css.scss, in `shorthand-font'\A         from line 9 of /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/Zulis-app/d/sass/bootstrap/type.css.scss"; }
