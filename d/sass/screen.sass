@@ -1,0 +1,60 @@
+$i : 'img/'
+
+@import bootstrap.css.scss
+
+//body, html
+    background: #eee
+body
+    padding-top: 60px
+.content
+    background: #fff
+.page-header
+    background-color: #f5f5f5
+    padding: 20px 20px 10px
+
+table
+    .points
+        text-align: center
+    .view-open
+        input
+            display: none
+    .view-edit
+        span span, strong span, .edit-name
+            display: none
+    .points
+        input
+            width: 20px
+
+.view-name
+    position: relative
+    padding-right: 10px
+    .remove
+        display: block
+        position: absolute
+        top: 0px
+        right: 0px
+        color: red
+        cursor: pointer
+
+.sounds
+    margin: 20px 0
+    opacity: 0.3
+    &:hover
+        opacity: 1
+
+.view-timer
+    margin: 20px 0
+    text-align: center
+    font-size: 340px
+    line-height: 500px
+    overflow: hidden
+    strong
+        font-weight: normal
+        &:after
+            content: ':'
+.remains-5
+    color: #630500
+.remains-1
+    color: #ff0000
+.remains-0
+    text-decoration: blink
