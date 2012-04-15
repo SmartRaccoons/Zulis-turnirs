@@ -78,25 +78,25 @@
       15: {
         0: function(e, s) {
           e.addClass('remains-15');
-          return s.play('beu');
+          return s.play('short');
         }
       },
       5: {
         0: function(e, s) {
           e.addClass('remains-5');
-          return s.play('beu');
+          return s.play('short');
         }
       },
       1: {
         0: function(e, s) {
           e.addClass('remains-1');
-          return s.play('beu');
+          return s.play('short');
         }
       },
       0: {
         0: function(e, s) {
           e.addClass('remains-0');
-          return s.play('beu3');
+          return s.play('long');
         }
       }
     };
@@ -156,7 +156,7 @@
 
     Sounds.prototype.className = 'sounds';
 
-    Sounds.prototype.template = _.template("<audio id='sound-beu' src='d/audio/beu.ogg' controls />\n<audio id='sound-beu3' src='d/audio/beu3.ogg' controls />");
+    Sounds.prototype.template = _.template("<audio id='sound-short' src='d/audio/short.ogg' controls />\n<audio id='sound-long' src='d/audio/long.ogg' controls />");
 
     Sounds.prototype.initialize = function() {
       return this.render();
