@@ -857,3 +857,132 @@ In d/javascripts/bone/routers.coffee, unmatched ) on line 33
 14:35:17 - compiled d/javascripts/bone/time/views.coffee
 14:36:56 - compiled d/javascripts/bone/time/views.coffee
 14:37:09 - compiled d/javascripts/bone/time/views.coffee
+22:04:16 - compiled d/javascripts/bone/time/models.coffee
+22:04:16 - compiled d/javascripts/bone/routers.coffee
+22:04:16 - compiled d/javascripts/bone/data/views.coffee
+22:04:16 - compiled d/javascripts/bone/data/models.coffee
+22:04:16 - compiled d/javascripts/bone/time/views.coffee
+>>> Change detected at 22:04:19 to: bootstrap.css.scss
+[31m[0m[32m   create[0m d/css/bootstrap.css 
+[31m[0m[32m   create[0m d/css/bootstrap/variables.css 
+[31m[0m[31m    error[0m d/sass/bootstrap/forms.css.scss (Line 9: Undefined variable: "$baseline".)
+[32m   create[0m d/css/bootstrap/forms.css 
+[31m[0m[31m    error[0m d/sass/bootstrap/type.css.scss (Line 9: Undefined mixin 'shorthand-font'.)
+[32m   create[0m d/css/bootstrap/type.css 
+[31m[0m[32m   create[0m d/css/bootstrap/reset.css 
+[31m[0m[31m    error[0m d/sass/bootstrap/patterns.css.scss (Line 21: Undefined variable: "$grayLight".)
+[32m   create[0m d/css/bootstrap/patterns.css 
+[31m[0m[31m    error[0m d/sass/bootstrap/tables.css.scss (Line 12: Undefined variable: "$baseline".)
+[32m   create[0m d/css/bootstrap/tables.css 
+[31m[0m[32m   create[0m d/css/bootstrap/mixins.css 
+[31m[0m[31m    error[0m d/sass/bootstrap/scaffolding.css.scss (Line 11: Undefined variable: "$white".)
+[32m   create[0m d/css/bootstrap/scaffolding.css 
+>>> Compass is watching for changes. Press Ctrl-C to Stop.
+22:08:38 - compiled d/javascripts/bone/data/views.coffee
+22:11:03 - compiled d/javascripts/bone/data/views.coffee
+22:11:21 - compiled d/javascripts/bone/data/views.coffee
+22:12:44 - compiled d/javascripts/bone/data/views.coffee
+22:15:18 - compiled d/javascripts/bone/data/views.coffee
+22:15:42 - compiled d/javascripts/bone/data/views.coffee
+22:16:43 - compiled d/javascripts/bone/data/views.coffee
+22:17:22 - compiled d/javascripts/bone/data/views.coffee
+22:18:08 - compiled d/javascripts/bone/data/views.coffee
+22:19:12 - compiled d/javascripts/bone/data/views.coffee
+22:19:35 - compiled d/javascripts/bone/data/views.coffee
+22:20:31 - compiled d/javascripts/bone/data/views.coffee
+22:21:01 - compiled d/javascripts/bone/data/views.coffee
+22:21:10 - compiled d/javascripts/bone/data/views.coffee
+In d/javascripts/bone/data/views.coffee, reserved word "function" on line 60
+In d/javascripts/bone/data/views.coffee, reserved word "function" on line 60
+In d/javascripts/bone/data/views.coffee, Parse error on line 60: Unexpected ','
+In d/javascripts/bone/data/views.coffee, Parse error on line 60: Unexpected ','
+In d/javascripts/bone/data/views.coffee, Parse error on line 61: Unexpected '{'
+In d/javascripts/bone/data/views.coffee, Parse error on line 61: Unexpected '{'
+22:26:53 - compiled d/javascripts/bone/data/views.coffee
+22:27:03 - compiled d/javascripts/bone/data/views.coffee
+22:27:45 - compiled d/javascripts/bone/data/views.coffee
+22:28:07 - compiled d/javascripts/bone/data/views.coffee
+22:28:22 - compiled d/javascripts/bone/data/views.coffee
+22:28:47 - compiled d/javascripts/bone/data/views.coffee
+22:31:59 - compiled d/javascripts/bone/data/views.coffee
+22:32:16 - compiled d/javascripts/bone/data/views.coffee
+22:32:48 - compiled d/javascripts/bone/data/views.coffee
+22:33:06 - compiled d/javascripts/bone/data/views.coffee
+22:33:12 - compiled d/javascripts/bone/data/views.coffee
+22:33:27 - compiled d/javascripts/bone/data/views.coffee
+22:33:36 - compiled d/javascripts/bone/data/views.coffee
+22:33:48 - compiled d/javascripts/bone/data/views.coffee
+22:34:25 - compiled d/javascripts/bone/data/views.coffee
+22:34:47 - compiled d/javascripts/bone/data/views.coffee
+22:34:53 - compiled d/javascripts/bone/data/views.coffee
+22:35:07 - compiled d/javascripts/bone/data/views.coffee
+22:35:17 - compiled d/javascripts/bone/data/views.coffee
+22:35:28 - compiled d/javascripts/bone/data/views.coffee
+22:35:48 - compiled d/javascripts/bone/data/views.coffee
+22:36:15 - compiled d/javascripts/bone/data/views.coffee
+22:37:07 - compiled d/javascripts/bone/data/views.coffee
+22:52:41 - compiled d/javascripts/bone/time/views.coffee
+22:53:18 - compiled d/javascripts/bone/time/views.coffee
+
+
+Version:  1.6  (compatible with browser extension versions 1.6.x)
+Port:     35729
+Watching: /home/bambis/Programming/raccoons.lv/darbi/raccoons/zule-2012/Zulis-app
+  - extensions: .html .css .js .png .gif .jpg .php .php5 .py .rb .erb
+  - live refreshing disabled for .js: will reload the whole page when .js is changed
+  - excluding changes in: */.git/* */.svn/* */.hg/*
+  - with a grace period of 0.05 sec after each change
+
+LiveReload is waiting for browser to connect.
+Modified: bootstrap.css
+Modified: variables.css
+Modified: reset.css
+Modified: forms.css
+Modified: type.css
+Modified: patterns.css
+Modified: tables.css
+Modified: scaffolding.css
+Modified: mixins.css
+Modified: views.js
+Browser connected.
+Browser URL: http://127.0.0.1/raccoons.lv/darbi/raccoons/zule-2012/Zulis-app/
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Modified: views.js
+Terminating WebSocket Server
+Browser disconnected.

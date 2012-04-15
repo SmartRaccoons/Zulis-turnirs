@@ -15,6 +15,21 @@ window.Zole = class Zole extends Backbone.View
       </thead>
       <tbody>
       </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3"></td>
+          <% for(var i=0; i<rounds; i++){ %>
+            <td class='points points-<%=i%>'>
+                <strong></strong>
+                ( <span></span> )
+            </td>
+          <%} %>
+          <td class='points points-total'>
+            <strong></strong>
+            <span></span>
+          </td>
+        </tr>
+      </tfoot>
     </table>
     <p>
       <input id='new-player' placeholder='Jauns spieļietojs' />
@@ -39,7 +54,20 @@ window.Zole = class Zole extends Backbone.View
       @.render()
       @collection.each @addUser
     @collection.bind('add', @addUser, @)
-
+    updateFoot = =>
+        points = []
+        @collection.each (m)->
+            _.each m.get('points'), (p, i)->
+                if not points[i]
+                    points[i] = [0, 0]
+                points[i][0] += parseInt(p[0]) || 0
+                points[i][1] += parseInt(p[1]) || 0
+        _.each points, (p, i)=>
+            container = $(@el).find('tfoot .points-'+i)
+            container.children('strong').text(p[0])
+            container.children('span').text(p[1])
+    @collection.bind 'change:points', updateFoot
+    @collection.bind 'reset', updateFoot
     @collection.fetch()
 
 

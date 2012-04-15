@@ -15,7 +15,7 @@
 
     Zole.prototype.tagName = 'div';
 
-    Zole.prototype.template = _.template("<table class='zebra-striped'>\n  <thead>\n    <tr>\n      <th>#</th>\n      <th>Nr</th>\n      <th>Vuords/pavuords</th>\n      <% for(var i=0; i<rounds; i++){ %>\n        <th class='points'><%=i+1 %></th>\n      <%} %>\n      <th class='points points-total'>Kūpā</th>\n    </tr>\n  </thead>\n  <tbody>\n  </tbody>\n</table>\n<p>\n  <input id='new-player' placeholder='Jauns spieļietojs' />\n</p>\n<div class='well'>\n  <!--<span id='delete-all' class='btn danger'>Dzēst vysu</span>-->\n  <span id='randomize' class='btn danger'>Random</span>\n  <span id='new-round' class='btn'>Vēļ kuorta</span>\n  <span id='order' class='btn large primary'>Sakuortot piec punktim</span>\n</div>");
+    Zole.prototype.template = _.template("<table class='zebra-striped'>\n  <thead>\n    <tr>\n      <th>#</th>\n      <th>Nr</th>\n      <th>Vuords/pavuords</th>\n      <% for(var i=0; i<rounds; i++){ %>\n        <th class='points'><%=i+1 %></th>\n      <%} %>\n      <th class='points points-total'>Kūpā</th>\n    </tr>\n  </thead>\n  <tbody>\n  </tbody>\n  <tfoot>\n    <tr>\n      <td colspan=\"3\"></td>\n      <% for(var i=0; i<rounds; i++){ %>\n        <td class='points points-<%=i%>'>\n            <strong></strong>\n            ( <span></span> )\n        </td>\n      <%} %>\n      <td class='points points-total'>\n        <strong></strong>\n        <span></span>\n      </td>\n    </tr>\n  </tfoot>\n</table>\n<p>\n  <input id='new-player' placeholder='Jauns spieļietojs' />\n</p>\n<div class='well'>\n  <!--<span id='delete-all' class='btn danger'>Dzēst vysu</span>-->\n  <span id='randomize' class='btn danger'>Random</span>\n  <span id='new-round' class='btn'>Vēļ kuorta</span>\n  <span id='order' class='btn large primary'>Sakuortot piec punktim</span>\n</div>");
 
     Zole.prototype.events = {
       'click #randomize': 'randomize',
@@ -25,13 +25,33 @@
     };
 
     Zole.prototype.initialize = function() {
-      var _this = this;
+      var updateFoot,
+        _this = this;
       this.collection.bind('reset', function() {
         _this.rounds = _this.collection.rounds();
         _this.render();
         return _this.collection.each(_this.addUser);
       });
       this.collection.bind('add', this.addUser, this);
+      updateFoot = function() {
+        var points;
+        points = [];
+        _this.collection.each(function(m) {
+          return _.each(m.get('points'), function(p, i) {
+            if (!points[i]) points[i] = [0, 0];
+            points[i][0] += parseInt(p[0]) || 0;
+            return points[i][1] += parseInt(p[1]) || 0;
+          });
+        });
+        return _.each(points, function(p, i) {
+          var container;
+          container = $(_this.el).find('tfoot .points-' + i);
+          container.children('strong').text(p[0]);
+          return container.children('span').text(p[1]);
+        });
+      };
+      this.collection.bind('change:points', updateFoot);
+      this.collection.bind('reset', updateFoot);
       return this.collection.fetch();
     };
 

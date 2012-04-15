@@ -52,19 +52,19 @@ class ActualTimer extends Backbone.View
     15:
       0: (e, s)->
         e.addClass('remains-15')
-        s.play('beu')
+        s.play('short')
     5:
       0: (e, s)->
         e.addClass('remains-5')
-        s.play('beu')
+        s.play('short')
     1:
       0: (e, s)->
         e.addClass('remains-1')
-        s.play('beu')
+        s.play('short')
     0:
       0: (e, s)->
         e.addClass('remains-0')
-        s.play('beu3')
+        s.play('long')
   initialize: ->
     @reset()
 
@@ -102,8 +102,8 @@ class Sounds extends Backbone.View
   tagName: 'div'
   className: 'sounds'
   template: _.template("""
-    <audio id='sound-beu' src='d/audio/beu.ogg' controls />
-    <audio id='sound-beu3' src='d/audio/beu3.ogg' controls />
+    <audio id='sound-short' src='d/audio/short.ogg' controls />
+    <audio id='sound-long' src='d/audio/long.ogg' controls />
   """)
 
   initialize: ->
