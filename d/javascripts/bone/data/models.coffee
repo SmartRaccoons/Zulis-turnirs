@@ -3,7 +3,8 @@ class User extends Backbone.Model
     return {
       order: Users.nextOrder(),
       name: '',
-      points: []
+      points: [],
+      discarded: null
     }
 
   rounds: ->
@@ -13,10 +14,28 @@ class User extends Backbone.Model
     points = _.clone(@get('points'))
     big = 0
     small = 0
-    _.each points, (p)->
+    dis = @get('discarded')
+    _.each points, (p, i)->
+      if i is dis
+        return
       big += parseInt(p[0]) || 0
       small += parseInt(p[1]) || 0
     return [big, small]
+
+  discard: ->
+    if @get('discarded') isnt null
+      return @set('discarded', null)
+    big = null
+    small = null
+    dis = null
+    _.each _.clone(@get('points')), (p, i)=>
+      b = (parseInt(p[0]) || 0)
+      s = (parseInt(p[1]) || 0)
+      if big is null or big > b or (big is b and small > s)
+        big = b
+        small = s
+        dis = i
+    @set('discarded', dis)
 
   addRound: ->
     p = _.clone(@get('points'))
@@ -52,6 +71,7 @@ class UserList extends Backbone.Collection
       m.save({
         'order': i++
       })
+
   reOrder: ->
     models = _.clone(@models)
     models.sort (m1, m2)->
@@ -64,6 +84,8 @@ class UserList extends Backbone.Collection
 #      total = m.total()
 #      order = m.get('order')
 #      return (1000000+total[0])*1000000 + total[1]*1000 + order
+
+  discard: -> @each (m)-> m.discard()
 
   emptyPoints: ->
     p = []

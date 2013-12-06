@@ -39,6 +39,7 @@ window.Zole = class Zole extends Backbone.View
       <span id='randomize' class='btn danger'>Random</span>
       <span id='new-round' class='btn'>Vēļ kuorta</span>
       <span id='order' class='btn large primary'>Sakuortot piec punktim</span>
+      <span id='discart' class='btn'>Izsveitruot vīnu kuortu</span>
     </div>
   """)
 
@@ -47,6 +48,7 @@ window.Zole = class Zole extends Backbone.View
     'click #new-round': 'newRound'
     'keyup #new-player': 'updateOnEneter'
     'click #order': 'reOrder'
+    'click #discart': 'discard'
 
   initialize: ->
     @collection.bind 'reset', =>
@@ -108,6 +110,9 @@ window.Zole = class Zole extends Backbone.View
         'place': place++
       })
 
+  discard: ->
+    @collection.discard()
+    @collection.each (m)-> m.view.render()
 
   render: ->
     $(@el).html(@.template({
@@ -132,7 +137,7 @@ class UserView extends Backbone.View
     </td>
     <% if (points) { %>
       <% _.each(points, function(p, i) { %>
-        <td data-round='<%=i+1%>' class='points points-round view-open'>
+        <td data-round='<%=i+1%>' class='points points-round view-open<%= discarded===i ? ' discarded' : ''%>'>
           <strong>
             <span><%= p[0] %></span>
             <input type='text' value='<%= p[0] %>' />
@@ -198,6 +203,7 @@ class UserView extends Backbone.View
       'order': @model.get('order'),
       'name': @model.get('name'),
       'points': @model.get('points'),
+      'discarded': @model.get('discarded'),
       'total': @model.total(),
     }));
 
