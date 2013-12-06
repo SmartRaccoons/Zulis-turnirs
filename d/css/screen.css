@@ -1,4 +1,4 @@
-/*
+/*!
  * Bootstrap v1.4.0
  *
  * Copyright 2011 Twitter, Inc
@@ -2070,16 +2070,16 @@ a.menu:after, .dropdown-toggle:after {
 .breadcrumb {
   padding: 7px 14px;
   margin: 0 0 18px;
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(white), to(#f5f5f5));
-  background-image: -moz-linear-gradient(top, white, #f5f5f5);
-  background-image: -ms-linear-gradient(top, white, #f5f5f5);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #f5f5f5));
-  background-image: -webkit-linear-gradient(top, white, #f5f5f5);
-  background-image: -o-linear-gradient(top, white, #f5f5f5);
+  background-image: -khtml-gradient(linear, left top, left bottom, from(white), to(whitesmoke));
+  background-image: -moz-linear-gradient(top, white, whitesmoke);
+  background-image: -ms-linear-gradient(top, white, whitesmoke);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, whitesmoke));
+  background-image: -webkit-linear-gradient(top, white, whitesmoke);
+  background-image: -o-linear-gradient(top, white, whitesmoke);
   background-image: linear-gradient(top, #ffffff, #f5f5f5);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#f5f5f5', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='whitesmoke', GradientType=0);
   border: 1px solid #ddd;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -2908,7 +2908,7 @@ body {
 
 /* line 11, ../sass/screen.sass */
 .page-header {
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   padding: 20px 20px 10px;
 }
 
@@ -2928,13 +2928,17 @@ table .view-edit span span, table .view-edit strong span, table .view-edit .edit
 table .points input {
   width: 20px;
 }
+/* line 27, ../sass/screen.sass */
+table .discarded {
+  text-decoration: line-through;
+}
 
-/* line 28, ../sass/screen.sass */
+/* line 31, ../sass/screen.sass */
 .view-name {
   position: relative;
   padding-right: 10px;
 }
-/* line 31, ../sass/screen.sass */
+/* line 34, ../sass/screen.sass */
 .view-name .remove {
   display: block;
   position: absolute;
@@ -2944,17 +2948,17 @@ table .points input {
   cursor: pointer;
 }
 
-/* line 39, ../sass/screen.sass */
+/* line 42, ../sass/screen.sass */
 .sounds {
   margin: 20px 0;
   opacity: 0.3;
 }
-/* line 42, ../sass/screen.sass */
+/* line 45, ../sass/screen.sass */
 .sounds:hover {
   opacity: 1;
 }
 
-/* line 45, ../sass/screen.sass */
+/* line 48, ../sass/screen.sass */
 .view-timer {
   margin: 20px 0;
   text-align: center;
@@ -2962,26 +2966,26 @@ table .points input {
   line-height: 500px;
   overflow: hidden;
 }
-/* line 51, ../sass/screen.sass */
+/* line 54, ../sass/screen.sass */
 .view-timer strong {
   font-weight: normal;
 }
-/* line 53, ../sass/screen.sass */
+/* line 56, ../sass/screen.sass */
 .view-timer strong:after {
   content: ":";
 }
 
-/* line 55, ../sass/screen.sass */
+/* line 58, ../sass/screen.sass */
 .remains-5 {
   color: #630500;
 }
 
-/* line 57, ../sass/screen.sass */
+/* line 60, ../sass/screen.sass */
 .remains-1 {
   color: red;
 }
 
-/* line 59, ../sass/screen.sass */
+/* line 62, ../sass/screen.sass */
 .remains-0 {
   text-decoration: blink;
 }
