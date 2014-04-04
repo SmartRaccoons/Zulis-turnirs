@@ -16,14 +16,15 @@
 
     Zole.prototype.tagName = 'div';
 
-    Zole.prototype.template = _.template("<table class='zebra-striped'>\n  <thead>\n    <tr>\n      <th>#</th>\n      <th>Nr</th>\n      <th>Vuords/pavuords</th>\n      <% for(var i=0; i<rounds; i++){ %>\n        <th class='points'><%=i+1 %></th>\n      <%} %>\n      <th class='points points-total'>Kūpā</th>\n    </tr>\n  </thead>\n  <tbody>\n  </tbody>\n  <tfoot>\n    <tr>\n      <td colspan=\"3\"></td>\n      <% for(var i=0; i<rounds; i++){ %>\n        <td class='points points-<%=i%>'>\n            <strong></strong>\n            ( <span></span> )\n        </td>\n      <%} %>\n      <td class='points points-total'>\n        <strong></strong>\n        <span></span>\n      </td>\n    </tr>\n  </tfoot>\n</table>\n<p>\n  <input id='new-player' placeholder='Jauns spieļietojs' />\n</p>\n<div class='well'>\n  <!--<span id='delete-all' class='btn danger'>Dzēst vysu</span>-->\n  <span id='randomize' class='btn danger'>Random</span>\n  <span id='new-round' class='btn'>Vēļ kuorta</span>\n  <span id='order' class='btn large primary'>Sakuortot piec punktim</span>\n  <span id='discart' class='btn'>Izsveitruot vīnu kuortu</span>\n</div>");
+    Zole.prototype.template = _.template("<%=_l('Tournament data instruction')%>\n\n<table class='zebra-striped'>\n  <thead>\n    <tr>\n      <th>#</th>\n      <th>Nr</th>\n      <th><%=_l('Name/surname')%></th>\n      <% for(var i=0; i<rounds; i++){ %>\n        <th class='points'><%=i+1 %></th>\n      <%} %>\n      <th class='points points-total'><%=_l('Total')%></th>\n    </tr>\n  </thead>\n  <tbody>\n  </tbody>\n  <tfoot>\n    <tr>\n      <td colspan=\"3\"></td>\n      <% for(var i=0; i<rounds; i++){ %>\n        <td class='points points-<%=i%>'>\n            <strong></strong>\n            ( <span></span> )\n        </td>\n      <%} %>\n      <td class='points points-total'>\n        <strong></strong>\n        <span></span>\n      </td>\n    </tr>\n  </tfoot>\n</table>\n<p>\n  <input id='new-player' placeholder='<%=_l(\"New player\")%>' />\n</p>\n<div class='well'>\n  <!--<span id='delete-all' class='btn danger'>Dzēst vysu</span>-->\n  <span id='randomize' class='btn danger'>Random</span>\n  <span id='new-round' class='btn'><%=_l('New round')%></span>\n  <span id='order' class='btn large primary'><%=_l('Reorder')%></span>\n  <span id='discart' class='btn'><%=_l('Remove one')%></span>\n</div>");
 
     Zole.prototype.events = {
       'click #randomize': 'randomize',
       'click #new-round': 'newRound',
       'keyup #new-player': 'updateOnEneter',
       'click #order': 'reOrder',
-      'click #discart': 'discard'
+      'click #discart': 'discard',
+      'keyup input': 'keyUp'
     };
 
     Zole.prototype.initialize = function() {
@@ -68,14 +69,22 @@
       return this.$('tbody').append(v.el);
     };
 
+    Zole.prototype.keyUp = function(e) {
+      var td;
+      if (e.keyCode === 13) {
+        td = $(e.currentTarget).closest('td');
+        return td.closest('tr').next('tr').find('td[data-round=' + td.attr('data-round') + ']').click();
+      }
+    };
+
     Zole.prototype.randomize = function() {
-      if (confirm('Īdūt kotram jaunu numuru?')) {
+      if (confirm(_l('Give new number'))) {
         return this.collection.randomize();
       }
     };
 
     Zole.prototype.newRound = function() {
-      if (confirm('Vēl vīna kuorta?')) {
+      if (confirm(_l('New round confirm?'))) {
         this.lastTh.before(this.make('th', {
           'class': 'points'
         }, ++this.rounds));
@@ -194,7 +203,7 @@
     };
 
     UserView.prototype.remove = function() {
-      if (confirm('Puorlīcynuots?')) {
+      if (confirm(_l('Sure?'))) {
         $(this.el).remove();
         return this.model.destroy();
       }

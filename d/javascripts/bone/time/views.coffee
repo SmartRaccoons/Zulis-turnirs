@@ -2,9 +2,10 @@ window.Timer = class Timer extends Backbone.View
   tagName: 'div'
   template: _.template("""
         <div class='timer'>
+          <%=_l('Timer instructions')%>
           <input class='span1' type='text' value='45' /> min.
           <span id='pause' class='btn'>Pauze</span>
-          <span id='start' class='btn primary'>Suokt</span>
+          <span id='start' class='btn primary'><%=_l('Start')%></span>
         </div>
        """)
 
@@ -17,7 +18,7 @@ window.Timer = class Timer extends Backbone.View
 
   start: ->
     if @actualTimer
-      if confirm('Nūmest taimeri?')
+      if confirm(_l('Reset timer?'))
         @actualTimer.remove()
       else
         return false
@@ -46,7 +47,19 @@ class ActualTimer extends Backbone.View
   tagName: 'div'
   className: 'view-timer'
   template: _.template("""
-      <strong><%=minutes<10&&minutes>=0 ? '0' : ''%><%=minutes %></strong><span><%=seconds<10 ? '0' : ''%><%=seconds%></span>
+      <strong><%
+         if (minutes<0){
+          %>-<%= -1*(minutes+1)%><%
+        } else if (minutes<10){
+          %>0<%=minutes%><%
+        } else {
+          %><%=minutes%><%
+        }%></strong><span><%
+        if (minutes < 0){
+          %><%=(60-seconds)<10 ? '0' : ''%><%=(60-seconds)%><%
+        }else {
+          %><%=seconds<10 ? '0' : ''%><%=seconds%><%
+        }%></span>
     """)
   on:
     15:
