@@ -1,16 +1,18 @@
 window.Zole = class Zole extends Backbone.View
   tagName: 'div'
   template: _.template("""
+    <%=_l('Tournament data instruction')%>
+
     <table class='zebra-striped'>
       <thead>
         <tr>
           <th>#</th>
           <th>Nr</th>
-          <th>Vuords/pavuords</th>
+          <th><%=_l('Name/surname')%></th>
           <% for(var i=0; i<rounds; i++){ %>
             <th class='points'><%=i+1 %></th>
           <%} %>
-          <th class='points points-total'>Kūpā</th>
+          <th class='points points-total'><%=_l('Total')%></th>
         </tr>
       </thead>
       <tbody>
@@ -32,14 +34,14 @@ window.Zole = class Zole extends Backbone.View
       </tfoot>
     </table>
     <p>
-      <input id='new-player' placeholder='Jauns spieļietojs' />
+      <input id='new-player' placeholder='<%=_l("New player")%>' />
     </p>
     <div class='well'>
       <!--<span id='delete-all' class='btn danger'>Dzēst vysu</span>-->
       <span id='randomize' class='btn danger'>Random</span>
-      <span id='new-round' class='btn'>Vēļ kuorta</span>
-      <span id='order' class='btn large primary'>Sakuortot piec punktim</span>
-      <span id='discart' class='btn'>Izsveitruot vīnu kuortu</span>
+      <span id='new-round' class='btn'><%=_l('New round')%></span>
+      <span id='order' class='btn large primary'><%=_l('Reorder')%></span>
+      <span id='discart' class='btn'><%=_l('Remove one')%></span>
     </div>
   """)
 
@@ -49,6 +51,7 @@ window.Zole = class Zole extends Backbone.View
     'keyup #new-player': 'updateOnEneter'
     'click #order': 'reOrder'
     'click #discart': 'discard'
+    'keyup input': 'keyUp'
 
   initialize: ->
     @collection.bind 'reset', =>
@@ -80,12 +83,17 @@ window.Zole = class Zole extends Backbone.View
     m.view = v
     @.$('tbody').append(v.el)
 
+  keyUp: (e)->
+    if e.keyCode is 13
+      td = $(e.currentTarget).closest('td')
+      td.closest('tr').next('tr').find('td[data-round='+td.attr('data-round')+']').click()
+
   randomize: ->
-    if confirm('Īdūt kotram jaunu numuru?')
+    if confirm(_l('Give new number'))
       @collection.randomize()
 
   newRound: ->
-    if confirm('Vēl vīna kuorta?')
+    if confirm(_l('New round confirm?'))
       @lastTh.before(@make('th', {'class': 'points'}, ++@rounds))
       @collection.each (m)->
         m.addRound()
@@ -193,7 +201,7 @@ class UserView extends Backbone.View
     @cancel(e)
 
   remove: ->
-    if confirm('Puorlīcynuots?')
+    if confirm(_l('Sure?'))
       $(@el).remove()
       @model.destroy()
 

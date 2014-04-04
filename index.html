@@ -10,18 +10,24 @@
         <div class='topbar'>
             <div class='fill'>
                 <div class='container'>
-                    <div class='brand'>Zūlis turnirs</div>
+                    <div class='brand'></div>
                     <ul id='navigation'></ul>
+                    <ul id='lang'>
+                        <li><a href="#lv/">lv</a></li>
+                        <li><a href="#lg/">lg</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
         <div class='container'>
             <div id='app' class='content'></div>
             <footer>
+                <p class="imp">
+                    Spēlē Zolīti interneta adresē: <a href="http://zolite.raccoons.lv/?utm_source=zulis-turnirs&utm_medium=net&utm_campaign=footer-link">zole.raccoons.lv</a>
+                </p>
                 <p>
                     &copy;
                     <a href='http://raccoons.lv'>raccoons.lv</a>
-                    2012
                 </p>
             </footer>
         </div>
@@ -30,6 +36,9 @@
         <script src='d/javascripts/underscore-min.js'></script>
         <script src='d/javascripts/backbone.js'></script>
         <script src='d/javascripts/backbone-localstorage.js'></script>
+        <script src='d/javascripts/init.js'></script>
+        <script src='d/javascripts/locale/lv.js'></script>
+        <script src='d/javascripts/locale/lg.js'></script>
         <script src='d/javascripts/bone/data/models.js'></script>
         <script src='d/javascripts/bone/data/views.js'></script>
         <script src='d/javascripts/bone/time/models.js'></script>
@@ -40,21 +49,6 @@
             (function(){
                 var r = new window.Router();
                 //print navigation links
-                $.each([['', 'Turnira dati'], ['timer', 'Taimers'], ['about','Par aplikaceji']], function(i, pr){
-                    $('#navigation').append(
-                        $('<li>').append(
-                            $('<a>', {
-                                'text': pr[1],
-                                'title': pr[1],
-                                'href': '#'+pr[0],
-                                'click': function(e){
-                                     e.preventDefault();
-                                     r.navigate(pr[0], true);
-                                 }
-                            })
-                        )
-                    )
-                });
                 Backbone.history.start();
                 //Backbone.history.start({pushState: true});
             })();

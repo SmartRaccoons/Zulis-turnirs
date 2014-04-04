@@ -2912,33 +2912,38 @@ body {
   padding: 20px 20px 10px;
 }
 
-/* line 16, ../sass/screen.sass */
+/* line 14, ../sass/screen.sass */
+#lang {
+  float: right;
+}
+
+/* line 18, ../sass/screen.sass */
 table .points {
   text-align: center;
 }
-/* line 19, ../sass/screen.sass */
+/* line 21, ../sass/screen.sass */
 table .view-open input {
   display: none;
 }
-/* line 22, ../sass/screen.sass */
+/* line 24, ../sass/screen.sass */
 table .view-edit span span, table .view-edit strong span, table .view-edit .edit-name {
   display: none;
 }
-/* line 25, ../sass/screen.sass */
+/* line 27, ../sass/screen.sass */
 table .points input {
   width: 20px;
 }
-/* line 27, ../sass/screen.sass */
+/* line 29, ../sass/screen.sass */
 table .discarded {
   text-decoration: line-through;
 }
 
-/* line 31, ../sass/screen.sass */
+/* line 33, ../sass/screen.sass */
 .view-name {
   position: relative;
   padding-right: 10px;
 }
-/* line 34, ../sass/screen.sass */
+/* line 36, ../sass/screen.sass */
 .view-name .remove {
   display: block;
   position: absolute;
@@ -2948,17 +2953,17 @@ table .discarded {
   cursor: pointer;
 }
 
-/* line 42, ../sass/screen.sass */
+/* line 44, ../sass/screen.sass */
 .sounds {
   margin: 20px 0;
   opacity: 0.3;
 }
-/* line 45, ../sass/screen.sass */
+/* line 47, ../sass/screen.sass */
 .sounds:hover {
   opacity: 1;
 }
 
-/* line 48, ../sass/screen.sass */
+/* line 50, ../sass/screen.sass */
 .view-timer {
   margin: 20px 0;
   text-align: center;
@@ -2966,26 +2971,31 @@ table .discarded {
   line-height: 500px;
   overflow: hidden;
 }
-/* line 54, ../sass/screen.sass */
+/* line 56, ../sass/screen.sass */
 .view-timer strong {
   font-weight: normal;
 }
-/* line 56, ../sass/screen.sass */
+/* line 58, ../sass/screen.sass */
 .view-timer strong:after {
   content: ":";
 }
 
-/* line 58, ../sass/screen.sass */
+/* line 60, ../sass/screen.sass */
 .remains-5 {
   color: #630500;
 }
 
-/* line 60, ../sass/screen.sass */
-.remains-1 {
+/* line 62, ../sass/screen.sass */
+.remains-1, .remains-0 {
   color: red;
 }
 
-/* line 62, ../sass/screen.sass */
+/* line 64, ../sass/screen.sass */
 .remains-0 {
   text-decoration: blink;
+}
+
+/* line 67, ../sass/screen.sass */
+.imp {
+  font-size: 20px;
 }

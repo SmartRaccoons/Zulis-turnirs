@@ -5,18 +5,52 @@ window.autoUpate = yes
 window.Router = class Router extends Backbone.Router
   routes: {
     '': 'index',
-    'timer': 'timer',
-    'about': 'about'
+#    'lv/': 'index',
+#    'lg/': 'index',
+#    'lv/points': 'points',
+#    'lg/points': 'points',
+#    'lv/timer': 'timer',
+#    'lg/timer': 'timer',
+#    'lv/about': 'about'
+#    'lg/about': 'about'
   }
 
+  initialize: ->
+    reload = ->
+      $('.brand').html(_l('head'))
+      $('#navigation').empty()
+      $.each [['', _l('Help')],['points', _l('Tournament data')], ['timer', _l('Timer')], ['about',_l('About application')]], (i, pr)->
+        $('#navigation').append(
+          $('<li>').append(
+            $('<a>', {
+              'text': pr[1],
+              'title': pr[1],
+              'href': '#'+App.lang.active+'/'+pr[0]
+            })
+          )
+        )
+    reload()
+    @route /^(.*?)\/(.*?)$/, 'none', (lang, fn)->
+      if lang isnt App.lang.active
+        App.lang.active = lang
+        reload()
+      if fn is ''
+        fn = 'index'
+      @[fn]()
+
   e: ->
-#    empty #app and return jquery array set
     ap = $('#app')
 #    fcking jquery works not well at this point :)
     ap[0].innerHTML = ''
     ap
 
+  none: ->
+
+
   index: ->
+    @e().html _l('Index tutorial')
+
+  points: ->
     if !@.z
       @.z = new Zole({
         collection: Users
@@ -32,35 +66,4 @@ window.Router = class Router extends Backbone.Router
     @e().append(@.t.el)
 
   about: ->
-    @e().html("""
-      <h1>Zūlis turniru <small>Aplikaceja</small></h1>
-      <p>
-        Atvīgloi turnira organiziešonu:
-      </p>
-      <ul>
-        <li>Punktu skaitiešonu</li>
-        <li>Spieļotoju davīnošonu</li>
-        <li>Laika skaitiešonu</li>
-        <li>Laika paziņošonu</li>
-        <li>Spieļotoju šķirošonu piec punktim</li>
-      </ul>
-      <p>Drūši varat lītot piec sovim īskotim, nūrodūt apakšā atpakaļsaiti uz autorim!</p>
-     """)
-
-#$(document).ready ->
-#  r = new Router();
-#  nav = [['', 'Turnira dati'], ['about','Par aplikaceji']]
-#  _nav.each (pr) ->
-#    $('#navigation').append(
-#      $('<li>').append(
-#        $('<a>', {
-#          'text': pr[1],
-#          'title': pr[1],
-#          'href': '#'+pr[0],
-#          'click': (e) ->
-#            e.preventDefault();
-#            r.navigate(pr[0], true);
-#          }
-#        )
-#      )
-#    )
+    @e().html _l('About')
