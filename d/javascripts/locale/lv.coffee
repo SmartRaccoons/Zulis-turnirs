@@ -36,6 +36,7 @@ Spied "Sakārtot pēc punktiem", tas sakārtos dalībniekus pēc reitinga/kārta
   'Index tutorial': """
       <h1>Zoles turnīra <small>Aplikācija</small></h1>
       <p>Programmu jālieto ar Mozilla Firefox vai Google Chrome jaunāko versiju.</p>
+      <p>Jāņem vērā, ka visi ievadītie dati tiek glabāti lokāli uz jūsu datora.</p>
       <p>
         Augšā ir četras navigācijas pogas:
       </p>
