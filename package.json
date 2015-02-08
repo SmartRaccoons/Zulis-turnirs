@@ -1,0 +1,14 @@
+{
+  "name": "Zulis-turnirs",
+  "version": "0.1.1",
+  "homepage": "http://smartraccoons.github.io/Zulis-turnirs/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com//SmartRaccoons/Zulis-turnirs.git"
+  },
+  "devDependencies": {
+    "grunt": "0.4",
+    "grunt-contrib-watch": "0.6",
+    "grunt-contrib-coffee": "0.12"
+  }
+}
