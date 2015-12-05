@@ -19,7 +19,7 @@ window.Router = class Router extends Backbone.Router
     reload = ->
       $('.brand').html(_l('head'))
       $('#navigation').empty()
-      $.each [['', _l('Help')],['points', _l('Tournament data')], ['timer', _l('Timer')], ['about',_l('About application')]], (i, pr)->
+      $.each [['', _l('About application')],['points', _l('Tournament data')], ['timer', _l('Timer')]], (i, pr)->
         $('#navigation').append(
           $('<li>').append(
             $('<a>', {
@@ -64,6 +64,3 @@ window.Router = class Router extends Backbone.Router
 
       })
     @e().append(@.t.el)
-
-  about: ->
-    @e().html _l('About')

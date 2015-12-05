@@ -1,6 +1,5 @@
 App.lang.strings.lv =
   'head': 'Zoles turnīrs'
-  'Help': 'Pamācība'
   'Tournament data': 'Turnīra dati'
   'Timer': 'Taimeris'
   'About application': 'Par aplikāciju'
@@ -12,6 +11,7 @@ App.lang.strings.lv =
   'New round': 'Vēl kārta'
   'Reorder': 'Sakārtot pēc punktiem'
   'Remove one': 'Izsvītrot sliktāko kārtu'
+  'Remove two': 'Izsvītrot 2 sliktākās kārtas'
   'Give new number': 'Iedot katram jaunu dalības numuru?'
   'New round confirm?': 'Pievienot vēl vienu kārtu?'
   'Start': 'Sākt'
@@ -31,6 +31,7 @@ Spied "Sakārtot pēc punktiem", tas sakārtos dalībniekus pēc reitinga/kārta
   (piemēram 6 (55), 2 (-15) utt.), lai pieglabātu jāspiež < Enter > (vai < Escape >). Kad punkti savadīti,
     tad var pārbaudīt kontrolsummu pēdējā cilnī (apakšā). Spiežam "Sakārtot pēc punktiem" un sākam nākošo kārtu.</p>
     <p>Poga "Izsvītrot sliktāko kārtu" izdzēsis sliktāko kārtu katram dalībniekam. Piespiediet otro reizi, lai noņemtu.</p>
+    <p>Poga "Izsvītrot 2 sliktākās kārtas" izdzēsis sliktāko kārtu katram dalībniekam. Piespiediet otro reizi, lai noņemtu.</p>
   """
 
   'Index tutorial': """
@@ -38,10 +39,10 @@ Spied "Sakārtot pēc punktiem", tas sakārtos dalībniekus pēc reitinga/kārta
       <p>Programmu jālieto ar Mozilla Firefox vai Google Chrome jaunāko versiju.</p>
       <p>Jāņem vērā, ka visi ievadītie dati tiek glabāti lokāli uz jūsu datora.</p>
       <p>
-        Augšā ir četras navigācijas pogas:
+        Augšā ir trīs navigācijas pogas:
       </p>
       <p>
-        1) <strong>Pamācība</strong> — šī sadaļa
+        1) <strong>Par aplikāciju</strong> — šī sadaļa
       </p>
       <p>
         2) <strong>Turnīra dati</strong> — turnīra rezultāti un tabula aprēķiniem
@@ -49,21 +50,4 @@ Spied "Sakārtot pēc punktiem", tas sakārtos dalībniekus pēc reitinga/kārta
       <p>
         3) <strong>Taimeris</strong> — speciāls atpakaļskaitīšanas taimeris ar atgādināšanas skaņas signāliem (uz 15, 5, 1 un 0 min.)
       </p>
-      <p>
-        4) <strong>Par aplikāciju</strong> — programmas apraksts
-      </p>
     """
-  'About': """
-      <h1>Zoles turnīrs <small>Aplikācija</small></h1>
-      <p>
-        Atvieglo turnīra organizēšanu:
-      </p>
-      <ul>
-        <li>Punktu skaitīšana</li>
-        <li>Spēlētāju pievienošana</li>
-        <li>Laika skaitīšana</li>
-        <li>Laika beigu paziņojumi</li>
-        <li>Spēlētāju kārtošana pēc punktiem</li>
-      </ul>
-      <p>Droši varat lietot pēc saviem ieskatiem, norādot apakšā atpakaļsaiti uz autoriem!</p>
-     """
