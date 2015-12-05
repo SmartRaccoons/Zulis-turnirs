@@ -16,25 +16,25 @@ class User extends Backbone.Model
     small = 0
     dis = @get('discarded')
     _.each points, (p, i)->
-      if i is dis
+      if dis and dis.indexOf(i) > -1
         return
       big += parseInt(p[0]) || 0
       small += parseInt(p[1]) || 0
     return [big, small]
 
-  discard: ->
-    if @get('discarded') isnt null
+  discard: (how)->
+    if how is null
       return @set('discarded', null)
-    big = null
-    small = null
-    dis = null
-    _.each _.clone(@get('points')), (p, i)=>
-      b = (parseInt(p[0]) || 0)
-      s = (parseInt(p[1]) || 0)
-      if big is null or big > b or (big is b and small > s)
-        big = b
-        small = s
-        dis = i
+    dis = []
+    p = _.clone(@get('points'))
+    for i in [0...how]
+      dis.push p.reduce (l, n, i)->
+        if dis.indexOf(i) > -1
+          return l
+        if l is null or n[0] < p[l][0] or (n[0] is p[l][0] and n[1] < p[l][1])
+          return i
+        return l
+      , null
     @set('discarded', dis)
 
   addRound: ->
@@ -85,7 +85,7 @@ class UserList extends Backbone.Collection
 #      order = m.get('order')
 #      return (1000000+total[0])*1000000 + total[1]*1000 + order
 
-  discard: -> @each (m)-> m.discard()
+  discard: (how)-> @each (m)-> m.discard(how)
 
   emptyPoints: ->
     p = []

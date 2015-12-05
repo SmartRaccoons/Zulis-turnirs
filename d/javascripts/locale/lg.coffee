@@ -1,6 +1,5 @@
 App.lang.strings.lg =
   'head': 'Zūlis turnirs'
-  'Help': 'Pavyiceiba'
   'Tournament data': 'Turnira dati'
   'Timer': 'Taimers'
   'About application': 'Par aplikaceji'
@@ -12,6 +11,7 @@ App.lang.strings.lg =
   'New round': 'Vēļ kuorta'
   'Reorder': 'Sakuortot piec punktim'
   'Remove one': 'Izsveitruot vīnu švakuokū kuortu'
+  'Remove two': 'Izsveitruot divys švakuokuos kuortys'
   'Give new number': 'Īdūt kotram jaunu numuru?'
   'New round confirm?': 'Vēl vīna kuorta?'
   'Start': 'Suokt'
@@ -30,17 +30,3 @@ App.lang.strings.lg =
   'Index tutorial': """
       <h1>Zūlis turnira <small>Aplikaceja</small></h1>
     """
-  'About': """
-      <h1>Zūlis turniru <small>Aplikaceja</small></h1>
-      <p>
-        Atvīgloi turnira organiziešonu:
-      </p>
-      <ul>
-        <li>Punktu skaitiešonu</li>
-        <li>Spieļotoju davīnošonu</li>
-        <li>Laika skaitiešonu</li>
-        <li>Laika paziņošonu</li>
-        <li>Spieļotoju šķirošonu piec punktim</li>
-      </ul>
-      <p>Drūši varat lītot piec sovim īskotim, nūrodūt apakšā atpakaļsaiti uz autorim!</p>
-     """

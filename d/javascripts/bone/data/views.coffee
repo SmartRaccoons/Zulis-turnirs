@@ -42,6 +42,7 @@ window.Zole = class Zole extends Backbone.View
       <span id='new-round' class='btn'><%=_l('New round')%></span>
       <span id='order' class='btn large primary'><%=_l('Reorder')%></span>
       <span id='discart' class='btn'><%=_l('Remove one')%></span>
+      <span id='discart-2' class='btn'><%=_l('Remove two')%></span>
     </div>
   """)
 
@@ -50,7 +51,8 @@ window.Zole = class Zole extends Backbone.View
     'click #new-round': 'newRound'
     'keyup #new-player': 'updateOnEneter'
     'click #order': 'reOrder'
-    'click #discart': 'discard'
+    'click #discart': -> @discard(1)
+    'click #discart-2': -> @discard(2)
     'keyup input': 'keyUp'
 
   initialize: ->
@@ -118,8 +120,11 @@ window.Zole = class Zole extends Backbone.View
         'place': place++
       })
 
-  discard: ->
-    @collection.discard()
+  discard: (how=1)->
+    if @_discard_previous is how
+      how = null
+    @_discard_previous = how
+    @collection.discard(how)
     @collection.each (m)-> m.view.render()
 
   render: ->
@@ -145,7 +150,7 @@ class UserView extends Backbone.View
     </td>
     <% if (points) { %>
       <% _.each(points, function(p, i) { %>
-        <td data-round='<%=i+1%>' class='points points-round view-open<%= discarded===i ? ' discarded' : ''%>'>
+        <td data-round='<%=i+1%>' class='points points-round view-open<%= discarded && discarded.indexOf(i) > -1 ? ' discarded' : ''%>'>
           <strong>
             <span><%= p[0] %></span>
             <input type='text' value='<%= p[0] %>' />
